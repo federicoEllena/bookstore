@@ -1,7 +1,11 @@
 import React from 'react';
-import { View } from 'react-native';
+import { View, Text } from 'react-native';
 
-const CardSection = props => <View style={styles.containerStyle}>{props.children}</View>;
+const ListItem = props => {
+  <View style={styles.containerStyle}>
+    <Text>I'm also a placeholder!</Text>
+  </View>
+};
 
 const styles = {
   containerStyle: {
@@ -15,4 +19,4 @@ const styles = {
   }
 };
 
-export default CardSection;
+export default ListItem;
