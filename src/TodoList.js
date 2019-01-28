@@ -5,16 +5,21 @@ import Header from './common/Header';
 import Input from './common/Input';
 import ItemList from './ItemList';
 import { connect } from 'react-redux';
-import { addTodo, removeTodo } from './redux/actions';
+import { addTodo } from './redux/actions';
 
 class TodoList extends Component {
   
   state = {
-    todoInput: null
-  };  
+    todoInput: ''
+  };
   
   addTodo = () => {
-    this.props.dispatch(addTodo(this.state.todoInput))
+    this.clearInputField();
+    this.props.dispatch(addTodo(this.state.todoInput));
+  };
+
+  clearInputField = () => {
+    this.setState({todoInput: ''})
   };
 
   render() {
@@ -26,15 +31,15 @@ class TodoList extends Component {
         <Input placeHolder="Enter item"
           onChangeText={text=>this.setState({todoInput: text})}
           value={this.state.todoInput}/>
-        <Text>{this.props.todos}</Text>
         <ItemList/>
       </View>
     );
   };
 };
 
-const mapStateToProps = store => ({
-  todos: store.todos
-});
+const mapStateToProps = store => {
+  return {
+  todos: store.todos}
+  };
 
 export default connect(mapStateToProps)(TodoList);

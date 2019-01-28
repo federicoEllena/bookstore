@@ -1,10 +1,12 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 
-const ListItem = props => {
-  <View style={styles.containerStyle}>
-    <Text>I'm also a placeholder!</Text>
-  </View>
+const ListItem = ({ itemText }) => {
+  return(
+    <View style={styles.containerStyle}>
+      <Text>{ itemText }</Text>
+    </View>
+  );
 };
 
 const styles = {
@@ -16,6 +18,9 @@ const styles = {
     flexDirection: 'row',
     borderColor: '#ddd',
     position: 'relative'
+  },
+  textStyle: {
+    fontSize: 18
   }
 };
 
