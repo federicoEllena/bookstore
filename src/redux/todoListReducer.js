@@ -9,11 +9,10 @@ export default (state = initialState, action) => {
 
   switch (type) {
     case 'ADD_TODO': {
-      console.log(state);
       return {...state, todoID:todoID+1, todos:[{ id: (todoID + 1), text: payload }, ...todos]};
     } 
     case 'REMOVE_TODO':
-      return state.filter(payload => state.id !== payload); // revisarlo y repensarlo
+      return state.todos.filter(todo => todo.id !== payload); // pendiente de ver si funciona
     default:
       return state;
   }

@@ -1,10 +1,14 @@
 import React from 'react';
 import { View, Text } from 'react-native';
+import DeleteButton from './common/DeleteButton';
 
 const ListItem = ({ itemText }) => {
+  const { containerStyle }= styles;
+
   return(
-    <View style={styles.containerStyle}>
+    <View style={containerStyle}>
       <Text>{ itemText }</Text>
+      <DeleteButton />
     </View>
   );
 };
@@ -14,13 +18,11 @@ const styles = {
     borderBottomWidth: 1,
     padding: 5,
     backgroundColor: '#fff',
-    justifyContent: 'flex-start',
+    justifyContent: 'space-between',
     flexDirection: 'row',
+    flex: 1,
     borderColor: '#ddd',
     position: 'relative'
-  },
-  textStyle: {
-    fontSize: 18
   }
 };
 
