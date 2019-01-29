@@ -2,21 +2,21 @@ import React from 'react';
 import { Text, TouchableOpacity, StyleSheet } from 'react-native';
 import Icon from "react-native-vector-icons/FontAwesome";
 
-const SmallButton = ({ onPress }) => (
+const DeleteButton = ({ onPress }) => (
     <TouchableOpacity onPress={onPress}>
-      <Icon name="trash-o" style={{color:'#b8b894'}} />
+      <Icon name="trash-o" style={styles.buttonTextStyle} />
     </TouchableOpacity>
   );
 
 const styles = StyleSheet.create({
   buttonTextStyle: {
-    fontSize: 20,
+    fontSize: 16,
     fontWeight: '600',
-    color: '#0f0f0a'
+    color: '#8c8c8c'
   }
 });
 
-export default SmallButton;
+export default DeleteButton;
 
 
 //import Icon from "react-native-vector-icons/FontAwesome";

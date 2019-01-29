@@ -3,11 +3,11 @@ import { View, Text } from 'react-native';
 import DeleteButton from './common/DeleteButton';
 
 const ListItem = ({ itemText }) => {
-  const { containerStyle }= styles;
+  const { containerStyle, textStyle }= styles;
 
   return(
     <View style={containerStyle}>
-      <Text>{ itemText }</Text>
+      <Text style={textStyle}>{ itemText }</Text>
       <DeleteButton />
     </View>
   );
@@ -23,6 +23,9 @@ const styles = {
     flex: 1,
     borderColor: '#ddd',
     position: 'relative'
+  },
+  textStyle:{
+    fontSize: 16
   }
 };
 
