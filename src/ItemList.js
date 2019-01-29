@@ -3,20 +3,19 @@ import { connect } from 'react-redux';
 import { FlatList } from 'react-native';
 import ListItem from './ListItem';
 
+import { removeTodo } from './redux/actions';
+
 class ItemList extends Component {
-  renderItem = (todo) => {
-    const { text, id } = todo.item;
-    return <ListItem itemText={text} onRemove={this.removeItem(id)}/>
-  };
+  renderItem = todo => <ListItem item={todo.item} onRemove={this.removeItem} />
   
-  removeItem = (id) => () => this.props.removeTodo(id);
+  removeItem = id => this.props.removeTodoItem(id);
 
   render() {
     return (
       <FlatList
         data={this.props.todos}
         renderItem={this.renderItem}
-        keyExtractor={(todo)=>`${todo.id}`}
+        keyExtractor={(todo, index) =>`${todo.text}${index}`}
       />
     );
   }
@@ -30,7 +29,7 @@ const mapStateToProps = store => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    removeTodo: id => dispatch(removeTodo(id))
+    removeTodoItem: id => dispatch(removeTodo(id))
   };
 };
 
@@ -48,4 +47,3 @@ con keyExtractor */
 de los contenidos en data a la vez
 keyExtractor necesita un string, aparentemente, por lo que keyExtractor={(todo)=>`${todo.id}`}
 */
-

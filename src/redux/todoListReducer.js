@@ -12,7 +12,7 @@ export default (state = initialState, action) => {
       return {...state, todoID:todoID+1, todos:[{ id: (todoID + 1), text: payload }, ...todos]};
     } 
     case 'REMOVE_TODO':
-      return state.todos.filter(todo => todo.id !== payload); // pendiente de ver si funciona
+      return { ...state, todos: todos.filter(todo => todo.id !== payload) } // pendiente de ver si funciona
     default:
       return state;
   }

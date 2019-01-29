@@ -1,14 +1,18 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 import DeleteButton from './common/DeleteButton';
+import Checkbox from './common/Checkbox';
 
-const ListItem = ({ itemText, onRemove }) => {
+const ListItem = ({ item, onRemove }) => {
+  const onRemoveItem = () => onRemove(item.id);
+
   const { containerStyle, textStyle }= styles;
 
   return(
     <View style={containerStyle}>
-      <Text style={textStyle}>{ itemText }</Text>
-      <DeleteButton onPress={onRemove}/>
+      <Text style={textStyle}>{item.text}</Text>
+      <Checkbox toggled={false}/>
+      <DeleteButton onPress={onRemoveItem}/>
     </View>
   );
 };

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View } from 'react-native';
 import SmallButton from './common/SmallButton';
 import Header from './common/Header';
 import Input from './common/Input';
@@ -14,8 +14,8 @@ class TodoList extends Component {
   };
   
   addTodo = () => {
-    this.clearInputField();
     this.props.dispatch(addTodo(this.state.todoInput));
+    this.clearInputField();
   };
 
   clearInputField = () => {
