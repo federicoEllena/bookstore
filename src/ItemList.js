@@ -5,10 +5,12 @@ import ListItem from './ListItem';
 
 class ItemList extends Component {
   renderItem = (todo) => {
-    const { text } = todo.item;
-    return <ListItem itemText={text}/>
+    const { text, id } = todo.item;
+    return <ListItem itemText={text} onRemove={this.removeItem(id)}/>
   };
   
+  removeItem = (id) => () => this.props.removeTodo(id);
+
   render() {
     return (
       <FlatList
@@ -26,7 +28,13 @@ const mapStateToProps = store => {
   };
 };
 
-export default connect(mapStateToProps)(ItemList);
+const mapDispatchToProps = dispatch => {
+  return {
+    removeTodo: id => dispatch(removeTodo(id))
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ItemList);
 
 /* esto deberia:
 renderizar una flatlist en pantalla

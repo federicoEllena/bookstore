@@ -17,8 +17,3 @@ const styles = StyleSheet.create({
 });
 
 export default DeleteButton;
-
-
-//import Icon from "react-native-vector-icons/FontAwesome";
-//<Icon name="fas fa-trash" style={{color:'#b8b894'}} />
-//<Text style={styles.buttonTextStyle}>{children}</Text>
