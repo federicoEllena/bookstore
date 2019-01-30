@@ -1,6 +1,6 @@
 const initialState = {
   todoID: 0,
-  todos:[]
+  todos: [],
 };
 
 export default (state = initialState, action) => {
@@ -8,21 +8,21 @@ export default (state = initialState, action) => {
   const { type, payload } = action;
 
   switch (type) {
-    case 'ADD_TODO': {
-      return {...state, todoID:todoID+1, todos:[{ id: (todoID + 1), text: payload }, ...todos]};
-    } 
+    case 'ADD_TODO':
+      return { ...state, todoID: todoID + 1, todos: [{ id: (todoID + 1), text: payload, toggled: false }, ...todos] };
     case 'REMOVE_TODO':
-      return { ...state, todos: todos.filter(todo => todo.id !== payload) } // pendiente de ver si funciona
+      return { ...state, todos: todos.filter(todo => todo.id !== payload) };
+    case 'TOGGLE_TODO': {
+      const newTodos = [...todos];
+      const getTodo = newTodos.find(todo => todo.id === payload);
+      const toggledTodo = { ...getTodo, toggled: !getTodo.toggled };
+      const todoIndex = newTodos.findIndex(todoFromArray => todoFromArray.id === toggledTodo.id);
+      newTodos[todoIndex] = toggledTodo;
+      return { ...state, todos: newTodos };
+    }
+    case 'REMOVE_TOGGLED':
+      return { ...state, todos: todos.filter(todo => todo.toggled) };
     default:
       return state;
   }
 };
-
-/* approach:
-    case 'ADD_TODO': {
-        return {...state, todos:[{ id: (todoID + 1), text: payload }, ...todos]};
-    } 
-
-    esto me esta generando keys duplicadas, ya que no se esta seteando el nuevo ID en el state
-    alternativa para no mutar el todoID del state?
-     */

@@ -3,15 +3,16 @@ import { View, Text } from 'react-native';
 import DeleteButton from './common/DeleteButton';
 import Checkbox from './common/Checkbox';
 
-const ListItem = ({ item, onRemove }) => {
+const ListItem = ({ item, onRemove, onToggle }) => {
   const onRemoveItem = () => onRemove(item.id);
+  const onToggleItem = () => onToggle(item.id);
 
   const { containerStyle, textStyle }= styles;
 
   return(
     <View style={containerStyle}>
       <Text style={textStyle}>{item.text}</Text>
-      <Checkbox toggled={false}/>
+      <Checkbox onPress={onToggleItem} toggled={item.toggled}/>
       <DeleteButton onPress={onRemoveItem}/>
     </View>
   );
@@ -28,7 +29,7 @@ const styles = {
     flexDirection: 'row',
     flex: 1,
     borderColor: '#ddd',
-    position: 'relative'
+    position: 'relative',
   },
   textStyle:{
     fontSize: 16

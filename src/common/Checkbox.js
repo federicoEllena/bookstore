@@ -1,26 +1,32 @@
 import React from 'react';
 import { View, TouchableWithoutFeedback, StyleSheet } from 'react-native';
 
-const Checkbox = ({ toggled }) => (
-  <TouchableWithoutFeedback>
-    <View style={styles.outerBoxStyle}>
-      <View style={toggled ? styles.innerBoxStyle : null}/>
-    </View>
-  </TouchableWithoutFeedback>
-);
+const Checkbox = ({ onPress, toggled }) => {
+  return (
+    <TouchableWithoutFeedback onPress={onPress}>
+      <View style={styles.outerBoxStyle}>
+        <View style={toggled && styles.innerBoxStyle} />
+      </View>
+    </TouchableWithoutFeedback>
+  );
+};
 
 const styles = StyleSheet.create({
   outerBoxStyle: {
-    width: 10,
-    height: 10,
-    borderColor: '#333333',
-    borderWidth: 5
+    width: 15,
+    height: 15,
+    borderColor: '#8c8c8c',
+    borderWidth: 2,
+    justifyContent: 'center',
   },
   innerBoxStyle: {
-    width: 5,
-    height: 5,
-    borderColor: '#333333'
-  }
+    width: 7.5,
+    height: 7.5,
+    borderColor: '#8c8c8c',
+    borderWidth: 2,
+    backgroundColor: '#8c8c8c',
+    alignSelf: 'center',
+  },
 });
 
 export default Checkbox;

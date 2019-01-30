@@ -10,6 +10,20 @@ export const removeTodo = id => {
     type: 'REMOVE_TODO',
     payload: id
   };
-}
+};
 
-/* unTodo ={id: 1, text:'aaaa'} */
+export const toggleTodo = id => {
+  return {
+    type: 'TOGGLE_TODO',
+    payload: id
+  };
+};
+
+export const removeToggledTodos = () => {
+  return {
+    type: 'REMOVE_TOGGLED',
+    payload: null,
+  };
+};
+
+/* unTodo ={id: 1, text:'aaaa', toggled: false} */

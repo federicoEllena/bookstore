@@ -1,22 +1,25 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { FlatList } from 'react-native';
+import { FlatList, View } from 'react-native';
 import ListItem from './ListItem';
 
-import { removeTodo } from './redux/actions';
+import { removeTodo, toggleTodo } from './redux/actions';
 
 class ItemList extends Component {
-  renderItem = todo => <ListItem item={todo.item} onRemove={this.removeItem} />
+  renderItem = todo => <ListItem item={todo.item} onRemove={this.removeItem} onToggle={this.toggleItem} toggled={todo.item.toggled} />
   
   removeItem = id => this.props.removeTodoItem(id);
+  toggleItem = id => this.props.toggleTodoItem(id);
 
   render() {
     return (
-      <FlatList
-        data={this.props.todos}
-        renderItem={this.renderItem}
-        keyExtractor={(todo, index) =>`${todo.text}${index}`}
-      />
+      <View>
+        <FlatList
+          data={this.props.todos}
+          renderItem={this.renderItem}
+          keyExtractor={(todo, index) =>`${todo.text}${index}`}
+        />
+      </View>
     );
   }
 }
@@ -29,7 +32,8 @@ const mapStateToProps = store => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    removeTodoItem: id => dispatch(removeTodo(id))
+    removeTodoItem: id => dispatch(removeTodo(id)),
+    toggleTodoItem: id => dispatch(toggleTodo(id)),
   };
 };
 

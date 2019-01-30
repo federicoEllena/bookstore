@@ -14,22 +14,17 @@ module.exports = {
   },
   "plugins": [
     "react",
-    "prettier",
     "flowtype"
   ],
   "extends": [
     "eslint:recommended",
     "airbnb",
     "plugin:react/recommended",
-    "prettier",
-    "prettier/flowtype",
-    "prettier/react"
   ],
   "globals": {
     "__DEV__": true,
   },
   "rules": {
-    "prettier/prettier": ["error", { printWidth: 110, singleQuote: true }],
     "no-invalid-this": "off",
     "no-return-assign": "off",
     "no-param-reassign": "off",
