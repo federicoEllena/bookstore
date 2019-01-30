@@ -6,36 +6,44 @@ import ListItem from './ListItem';
 import { removeTodo, toggleTodo } from './redux/actions';
 
 class ItemList extends Component {
-  renderItem = todo => <ListItem item={todo.item} onRemove={this.removeItem} onToggle={this.toggleItem} toggled={todo.item.toggled} />
-  
-  removeItem = id => this.props.removeTodoItem(id);
+  renderItem = todo => (
+    <ListItem
+      item={todo.item}
+      onRemove={this.removeItem}
+      onToggle={this.toggleItem}
+      toggled={todo.item.toggled}
+    />
+  );
+
+  removeItem = (id) => {
+    const { removeTodoItem } = this.props;
+    removeTodoItem(id);
+  };
+
   toggleItem = id => this.props.toggleTodoItem(id);
 
   render() {
+    const { style, todos } = this.props;
     return (
-      <View>
+      <View style={style}>
         <FlatList
-          data={this.props.todos}
+          data={todos}
           renderItem={this.renderItem}
-          keyExtractor={(todo, index) =>`${todo.text}${index}`}
+          keyExtractor={(todo, index) => `${todo.text}${index}`}
         />
       </View>
     );
   }
 }
 
-const mapStateToProps = store => {
-  return {
-    todos: store.todos
-  };
-};
+const mapStateToProps = store => ({
+  todos: store.todos,
+});
 
-const mapDispatchToProps = dispatch => {
-  return {
-    removeTodoItem: id => dispatch(removeTodo(id)),
-    toggleTodoItem: id => dispatch(toggleTodo(id)),
-  };
-};
+const mapDispatchToProps = dispatch => ({
+  removeTodoItem: id => dispatch(removeTodo(id)),
+  toggleTodoItem: id => dispatch(toggleTodo(id)),
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(ItemList);
 

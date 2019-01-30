@@ -21,7 +21,7 @@ export default (state = initialState, action) => {
       return { ...state, todos: newTodos };
     }
     case 'REMOVE_TOGGLED':
-      return { ...state, todos: todos.filter(todo => todo.toggled) };
+      return { ...state, todos: todos.filter(todo => todo.toggled !== true) };
     default:
       return state;
   }

@@ -19,7 +19,7 @@ export const toggleTodo = id => {
   };
 };
 
-export const removeToggledTodos = () => {
+export const removeToggled = () => {
   return {
     type: 'REMOVE_TOGGLED',
     payload: null,
