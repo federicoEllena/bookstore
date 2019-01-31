@@ -15,6 +15,7 @@ const styles = StyleSheet.create({
   outerBoxStyle: {
     width: 15,
     height: 15,
+    margin: 5,
     borderColor: '#8c8c8c',
     borderWidth: 2,
     justifyContent: 'center',

@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text } from 'react-native';
+
 import DeleteButton from './common/DeleteButton';
 import Checkbox from './common/Checkbox';
 
@@ -7,13 +8,15 @@ const ListItem = ({ item, onRemove, onToggle }) => {
   const onRemoveItem = () => onRemove(item.id);
   const onToggleItem = () => onToggle(item.id);
 
-  const { containerStyle, textStyle }= styles;
+  const { containerStyle, textStyle, buttonsContainerStyle } = styles;
 
-  return(
+  return (
     <View style={containerStyle}>
       <Text style={textStyle}>{item.text}</Text>
-      <Checkbox onPress={onToggleItem} toggled={item.toggled}/>
-      <DeleteButton onPress={onRemoveItem}/>
+      <View style={buttonsContainerStyle}>
+        <Checkbox onPress={onToggleItem} toggled={item.toggled} />
+        <DeleteButton onPress={onRemoveItem} />
+      </View>
     </View>
   );
 };
@@ -27,13 +30,16 @@ const styles = {
     backgroundColor: '#fff',
     justifyContent: 'space-between',
     flexDirection: 'row',
-    flex: 1,
     borderColor: '#ddd',
     position: 'relative',
   },
-  textStyle:{
-    fontSize: 16
-  }
+  textStyle: {
+    fontSize: 16,
+  },
+  buttonsContainerStyle: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
 };
 
 export default ListItem;

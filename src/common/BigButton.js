@@ -2,7 +2,7 @@ import React from 'react';
 import { Text, TouchableOpacity, StyleSheet } from 'react-native';
 
 const BigButton = ({ children, onPress }) => (
-    <TouchableOpacity>
+    <TouchableOpacity onPress={onPress}>
       <Text style={styles.buttonTextStyle}>{children}</Text>
     </TouchableOpacity>
   );
