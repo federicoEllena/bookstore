@@ -26,4 +26,11 @@ export const removeToggled = () => {
   };
 };
 
+export const storeBookData = bookData => {
+  return {
+    type: 'STORE_DATA',
+    payload: bookData,
+  };
+};
+
 /* unTodo ={id: 1, text:'aaaa', toggled: false} */

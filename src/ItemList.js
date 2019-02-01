@@ -6,6 +6,8 @@ import ListItem from './ListItem';
 import { removeTodo, toggleTodo } from './redux/actions';
 
 class ItemList extends Component {
+
+
   renderItem = todo => (
     <ListItem
       item={todo.item}
@@ -37,7 +39,7 @@ class ItemList extends Component {
 }
 
 const mapStateToProps = store => ({
-  todos: store.todos,
+  todos: store.todos.todos,
 });
 
 const mapDispatchToProps = dispatch => ({

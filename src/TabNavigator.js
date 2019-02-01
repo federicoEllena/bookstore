@@ -19,19 +19,11 @@ const TabNavigator = createBottomTabNavigator({
   },
 },
 {
-  navigationOptions: ({ navigation }) => ({
-    tabBarIcon: ({ focused, horizontal, tintColor }) => {
-      const { routeName } = navigation.state;
-      const IconToDisplay = Icons;
-      let iconName;
-      if (routeName === 'Wishlist') {
-        iconName = 'list-ul';
-      } else if (routeName === 'Books') {
-        iconName = 'fa-book';
-      }
-      return <IconToDisplay name={iconName} size={20} color="#bfbfbf" />;
-    },
-  }),
+  navigationOptions: {
+    // eslint-disable-next-line react/display-name
+    tabBarIcon: () => (
+      <Icon name="home" size={20} color="#bfbfbf" />),
+  },
 });
 
 

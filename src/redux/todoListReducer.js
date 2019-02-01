@@ -9,7 +9,11 @@ export default (state = initialState, action) => {
 
   switch (type) {
     case 'ADD_TODO':
-      return { ...state, todoID: todoID + 1, todos: [{ id: (todoID + 1), text: payload, toggled: false }, ...todos] };
+      return {
+        ...state,
+        todoID: todoID + 1,
+        todos: [{ id: (todoID + 1), text: payload, toggled: false }, ...todos]
+      };
     case 'REMOVE_TODO':
       return { ...state, todos: todos.filter(todo => todo.id !== payload) };
     case 'TOGGLE_TODO': {

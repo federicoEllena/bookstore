@@ -30,7 +30,7 @@ class TodoList extends Component {
 };
 
 const mapStateToProps = store => ({
-  todos: store.todos
+  todos: store.todos.todos,
 });
 
 export default connect(mapStateToProps)(TodoList);
