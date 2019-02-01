@@ -20,8 +20,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: '#ffffe6',
-    borderBottomColor: '#bfbfbf',
-    borderBottomWidth: 1
+    borderColor: '#bfbfbf',
+    borderWidth: 1
   },
   inputStyle: {
     color: '#0f0f0a',

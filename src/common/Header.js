@@ -12,9 +12,9 @@ const styles = StyleSheet.create({
   viewStyle: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    backgroundColor: '#4da6ff',
+    backgroundColor: '#009900',
     height: 50,
-    shadowColor: '#0059b3',
+    shadowColor: '#008000',
     shadowOffset: { width: 1, height: 3 },
     shadowOpacity: 0.75,
     elevation: 5,
