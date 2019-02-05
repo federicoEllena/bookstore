@@ -1,18 +1,18 @@
 import React from 'react';
 import {
-  View, Text, Image,
+  TouchableOpacity, Text, Image, View
 } from 'react-native';
 
 import styles from './styles';
 
-const BookItem = ({ item }) => {
+const BookItem = ({ item, onPress }) => {
   const { title, author, coverImg } = item;
   const { containerStyle, coverImgStyle, bookTextStyle, bookTitleStyle, bookAuthorStyle } = styles;
   // eslint-disable-next-line global-require
   const imgSource = coverImg ? { uri: coverImg } : require('./book_placeholder.png');
 
   return (
-    <View style={containerStyle}>
+    <TouchableOpacity style={containerStyle} onPress={onPress}>
       <View>
         <Image source={imgSource} style={coverImgStyle} />
       </View>
@@ -20,7 +20,7 @@ const BookItem = ({ item }) => {
         <Text style={bookTitleStyle}>{title}</Text>
         <Text style={bookAuthorStyle}>{author}</Text>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 

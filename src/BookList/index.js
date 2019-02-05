@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { FlatList } from 'react-native';
+import { FlatList, TouchableOpacity } from 'react-native';
 
 import { storeBookData } from '../redux/actions';
 import BookItem from '../BookItem';
@@ -20,7 +20,7 @@ class Booklist extends Component {
       .then((data) => {
         const responseData = JSON.parse(data._bodyText);
         this.storeBookData(responseData);
-        this.setState({dataIsLoaded: true});
+        this.setState({ dataIsLoaded: true });
       });
   }
 
@@ -29,12 +29,13 @@ class Booklist extends Component {
   };
 
   renderItem = book => (
-    <BookItem item={book.item} />
+    <BookItem item={book.item} onPress={() => this.navigateToDetails(book.item)} />
   );
+
+  navigateToDetails = book => this.props.navigation.navigate({ routeName: 'Details', params: { book } });
 
   render() {
     const { books } = this.props;
-    console.log(books);
 
     if (!this.state.dataIsLoaded) {
       return (<Spinner />);
