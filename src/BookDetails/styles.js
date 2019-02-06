@@ -1,18 +1,20 @@
 import { StyleSheet } from 'react-native';
 
+import { scale } from '../Scaling';
+
 const styles = StyleSheet.create({
   titleTextStyle: {
     fontWeight: 'bold',
-    fontSize: 18,
-    padding: 5,
+    fontSize: scale(18),
+    padding: scale(5),
   },
   authorTextStyle: {
-    fontSize: 16,
-    padding: 5,
+    fontSize: scale(16),
+    padding: scale(5),
   },
   detailTextStyle: {
-    fontSize: 14,
-    padding: 5,
+    fontSize: scale(14),
+    padding: scale(5),
   },
 });
 

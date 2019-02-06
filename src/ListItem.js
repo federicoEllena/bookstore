@@ -4,6 +4,8 @@ import { View, Text } from 'react-native';
 import DeleteButton from './common/DeleteButton';
 import Checkbox from './common/Checkbox';
 
+import { scale } from './Scaling';
+
 const ListItem = ({ item, onRemove, onToggle }) => {
   const onRemoveItem = () => onRemove(item.id);
   const onToggleItem = () => onToggle(item.id);
@@ -24,9 +26,9 @@ const ListItem = ({ item, onRemove, onToggle }) => {
 const styles = {
   containerStyle: {
     borderBottomWidth: 1,
-    padding: 5,
-    paddingRight: 10,
-    paddingLeft: 10,
+    padding: scale(5),
+    paddingRight: scale(10),
+    paddingLeft: scale(10),
     backgroundColor: '#fff',
     justifyContent: 'space-between',
     flexDirection: 'row',
@@ -34,7 +36,7 @@ const styles = {
     position: 'relative',
   },
   textStyle: {
-    fontSize: 16,
+    fontSize: scale(16),
   },
   buttonsContainerStyle: {
     flexDirection: 'row',

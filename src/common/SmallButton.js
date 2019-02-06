@@ -1,5 +1,6 @@
 import React from 'react';
 import { Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { scale } from '../Scaling';
 
 const SmallButton = ({ children, onPress }) => (
     <TouchableOpacity onPress={onPress}>
@@ -9,7 +10,7 @@ const SmallButton = ({ children, onPress }) => (
 
 const styles = StyleSheet.create({
   buttonTextStyle: {
-    fontSize: 20,
+    fontSize: scale(20),
     fontWeight: '600',
     color: '#bfbfbf'
   }

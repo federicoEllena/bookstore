@@ -1,5 +1,6 @@
 import React from 'react';
 import { Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { scale, verticalScale } from '../Scaling';
 
 const BigButton = ({ children, onPress }) => (
     <TouchableOpacity onPress={onPress}>
@@ -9,7 +10,7 @@ const BigButton = ({ children, onPress }) => (
 
 const styles = StyleSheet.create({
   buttonTextStyle: {
-    fontSize: 20,
+    fontSize: verticalScale(20),
     fontWeight: '500',
     color: '#ff6666',
     alignSelf: 'center',

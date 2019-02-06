@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, TouchableWithoutFeedback, StyleSheet } from 'react-native';
+import { scale, verticalScale } from '../Scaling';
 
 const Checkbox = ({ onPress, toggled }) => {
   return (
@@ -13,18 +14,18 @@ const Checkbox = ({ onPress, toggled }) => {
 
 const styles = StyleSheet.create({
   outerBoxStyle: {
-    width: 15,
-    height: 15,
-    margin: 5,
+    width: scale(15),
+    height: scale(15),
+    margin: scale(5),
     borderColor: '#8c8c8c',
-    borderWidth: 2,
+    borderWidth: scale(2),
     justifyContent: 'center',
   },
   innerBoxStyle: {
-    width: 7.5,
-    height: 7.5,
+    width: scale(7.5),
+    height: scale(7.5),
     borderColor: '#8c8c8c',
-    borderWidth: 2,
+    borderWidth: scale(2),
     backgroundColor: '#8c8c8c',
     alignSelf: 'center',
   },

@@ -1,5 +1,6 @@
 import React from 'react';
 import { TextInput, View, StyleSheet } from 'react-native';
+import { scale, verticalScale } from '../Scaling';
 
 const Input = ({ placeHolder, value, onChangeText }) => {
   return(
@@ -25,10 +26,10 @@ const styles = StyleSheet.create({
   },
   inputStyle: {
     color: '#0f0f0a',
-    paddingRight: 10,
-    paddingLeft: 10,
-    fontSize: 18,
-    lineHeight: 20
+    paddingRight: scale(10),
+    paddingLeft: scale(10),
+    fontSize: scale(18),
+    lineHeight: verticalScale(20),
   }
 });
 
